@@ -1114,10 +1114,16 @@ h1.underline:after {
         font-size: 26px;
         width: 100%
     }
-}
+         }
+
+         .countdown-timer.white .flip-clock-label {
+             color: inherit;
+         }
 
 
-        </style><title>React Indie Bundle</title><meta content="React Indie Bundle will give you everything you need to learn React, have some fun, and see if it fits your project." name="description"><meta content="react, javascript, reactjs, react.js, learn react" name="keywords"><meta content="146cf0d73f72a2:15ae79cc5346dc" name="leadpages-meta-id"><meta content="//swizec.leadpages.co" name="leadpages-url"><meta name="leadpages-served-by" content="html" /></head>
+        </style><title>React Indie Bundle</title><meta content="React Indie Bundle will give you everything you need to learn React, have some fun, and see if it fits your project." name="description"><meta content="react, javascript, reactjs, react.js, learn react" name="keywords"><meta content="146cf0d73f72a2:15ae79cc5346dc" name="leadpages-meta-id"><meta content="//swizec.leadpages.co" name="leadpages-url"><meta name="leadpages-served-by" content="html" />
+        <link rel="stylesheet" href="/flipclock.css">
+    </head>
     <body class="env-local">
 	<div class="page-cover"></div>
 
@@ -1134,7 +1140,9 @@ h1.underline:after {
 
 	                    <h1 data-name="Title" class="role-element leadstyle-text">Jump into React</h1>
 
-	                    <h2 data-name="Text" class="role-element leadstyle-text">React is the next big thing.<br><br>Your friends are trying it, bloggers sing its praises, conference speakers have sexy demos, and your boss has been asking some hard questions.<br><br>But you don't know where to start.<br><br><font face="Century Gothic, Segoe UI Emoji, Segoe UI Symbol, Symbola, EmojiSymbols"><strong>React Indie Bundle</strong> has everything you need to get started right away. Regardless of your experience level.</font></h2>
+	                    <h2 data-name="Text" class="role-element leadstyle-text">React is the next big thing.<br><br>Your friends are trying it, bloggers sing its praises, conference speakers have sexy demos, and your boss has been asking some hard questions.<br><br>But you don't know where to start.<br><br><font face="Century Gothic, Segoe UI Emoji, Segoe UI Symbol, Symbola, EmojiSymbols"><strong>React Indie Bundle</strong> has everything you need to get started right away. Regardless of your experience level.<br><br>
+                                This is a limited-time offer that ends in:<br><br>
+                                <div class="countdown-timer white" style="width: 700px; left: -100px"></div></font></h2>
                             <a class="btn btn-default btn-lg role-element leadstyle-link" data-name="Button" href="#packages">I want this</a>
 	                </div>
 	            </div>
@@ -1196,7 +1204,7 @@ h1.underline:after {
 	                <div class="col-md-5 role-element leadstyle-container" data-layout-order="1" data-name="Column 2">
 	                    <h1 class="black-font georgia underline white-font role-element leadstyle-text" data-name="Title">Learn React,<br>help opensource</h1>
 
-	                    <p class="black-font role-element leadstyle-text" data-name="Text">React Indie Bundle brings you the best <b>independent</b> materials so you can learn React fast. We have <b>4 books</b> with over 600 pages, and over <b>19 hours of video</b> material.<br><br>And we're <b>donating 10%</b> of the proceeds to <b>top React open source</b> projects so people like Dan Abramov can make all our lives better.</p>
+	                    <p class="black-font role-element leadstyle-text" data-name="Text">React Indie Bundle brings you the best <b>independent</b> materials so you can learn React fast. You get <b>4 books</b> with over 600 pages, and over <b>19 hours of video</b> material.<br><br>And we're <b>donating 10%</b> of the proceeds to <b>top React open source</b> projects so people like Dan Abramov can make all our lives better.</p>
 	                </div>
 	            </div>
                     <div class="row flexible">
@@ -1375,7 +1383,7 @@ You either have to use dumbed down libraries that won't let you do what you want
 	                    <h1 class="georgia underline role-element leadstyle-text" data-name="Title">Code review and pair programming</h1>
 
 	                    <p class="black-font role-element leadstyle-text" data-name="Text">
-                                Still not certain of your React skills?<br><br>
+                                Still not confident in your React skills?<br><br>
                                 If you just started your adventure with React - you may have tried to write your tailor-made components. They work, but hey, is the code good enough?
                                 Do you want to know if your React component is well writen?
                                 <br><br>
@@ -1729,6 +1737,13 @@ You either have to use dumbed down libraries that won't let you do what you want
 	                </div>
 
 	            </div>
+
+                    <div class="row flexible text-center">
+                        <div class="col-md-10 leadstyle-container">
+                            <h4>This offer ends in:</h4><br>
+                            <div class="countdown-timer2" style="left: 115px"></div>
+                        </div>
+                    </div>
 	        </div>
 	    </div>
 
@@ -1819,7 +1834,27 @@ You either have to use dumbed down libraries that won't let you do what you want
 
 	</div>
 
-	<div><script>
+	<div>
+            <script src="/flipclock.min.js"></script>
+
+            <script>
+             var timeLeft = (new Date("2015-12-07 12:30 pm PST") - new Date())/1000;
+             $('.countdown-timer').FlipClock(
+                 timeLeft,
+                 {
+                     clockFace: 'DailyCounter',
+                     countdown: true,
+                     showSeconds: true
+                 });
+             $('.countdown-timer2').FlipClock(
+                 timeLeft,
+                 {
+                     clockFace: 'DailyCounter',
+                     countdown: true,
+                     showSeconds: true
+                 });
+            </script>
+            <script>
               (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                                        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
