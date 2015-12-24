@@ -3960,6 +3960,46 @@ if (typeof JSON !== 'object') {
       // TODO: refactor setupResponsives to use this method.
     };
 
+    this.updateCountdowns = function() {
+
+      function getTimeUnits(time, unit, limit) {
+        var units = 0;
+        units = time / unit;
+        units = Math.floor(units);
+        units = Math.max(0, units);
+        return limit ? units % limit : units;
+      }
+
+      $('[data-timestamp]')
+        .each(function() {
+          var $element = $(this);
+          var $days = $element.find('#days,.days');
+          var $hours = $element.find('#hours,.hours');
+          var $minutes = $element.find('#minutes,.minutes');
+          var $seconds = $element.find('#seconds,.seconds');
+          var timestamp = $element.attr('data-timestamp');
+          var target = Number(timestamp);
+          var start = Number(new Date);
+          var now = Number(new Date);
+          var delta = target - now;
+
+          var days = getTimeUnits(delta, 24 * 60 * 60 * 1000);
+          var hours = getTimeUnits(delta, 60 * 60 * 1000, 24);
+          var minutes = getTimeUnits(delta, 60 * 1000, 60);
+          var seconds = getTimeUnits(delta, 1000, 60);
+
+          var hasDays = $days.is(':visible');
+          hours = hasDays ? hours : hours + (days * 24);
+
+          $days.text(days || 0); // #days
+          $hours.text(hours || 0); // #hours
+          $minutes.text(minutes || 0); // #minutes
+          $seconds.text(seconds || 0); // #seconds
+          // if (delta < 1) clearInterval(interval);
+        });
+
+    };
+
     this.page.popup = false;
 
     this.setupExitMessage = function() {
@@ -4343,6 +4383,11 @@ if (typeof JSON !== 'object') {
 
           });
         });
+
+      setInterval(function() {
+        self.updateCountdowns();
+      }, 1000);
+
     };
 
     this.isReady = true;
